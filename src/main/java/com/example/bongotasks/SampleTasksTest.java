@@ -8,11 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SampleTasksTest {
     private SampleTasks sampleTasks;
+    private Task task;
 
     @BeforeEach
     void setUp() {
         // Arrange
         sampleTasks = new SampleTasks();
+        task = new Task("04", "Buy Bread", "Buy some bread", false);
     }
 
     @AfterEach
@@ -28,7 +30,7 @@ class SampleTasksTest {
     void addTask() {
         int currentSize = sampleTasks.getTaskList().size();
         // Act
-        sampleTasks.addTask(new Task("04", "Buy Bread", "Buy some bread", false));
+        sampleTasks.addTask(task);
         // Assert
         assertEquals(currentSize + 1, sampleTasks.getTaskList().size());
     }

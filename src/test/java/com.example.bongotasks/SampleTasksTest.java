@@ -30,7 +30,7 @@ public class SampleTasksTest {
     public void addTask() {
         int currentSize = sampleTasks.getTaskList().size();
         // Act
-//        sampleTasks.addTask(task);
+        sampleTasks.addTask(task);
         // Assert
         assertEquals(currentSize + 1, sampleTasks.getTaskList().size());
     }

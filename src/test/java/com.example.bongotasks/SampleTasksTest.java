@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SampleTasksTest {
+public class SampleTasksTest {
     private SampleTasks sampleTasks;
     private Task task;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         // Arrange
         sampleTasks = new SampleTasks();
         task = new Task("04", "Buy Bread", "Buy some bread", false);
@@ -22,12 +22,12 @@ class SampleTasksTest {
     }
 
     @Test
-    void getTaskList() {
+    public void getTaskList() {
         assertEquals(3, sampleTasks.getTaskList().size());
     }
 
     @Test
-    void addTask() {
+    public void addTask() {
         int currentSize = sampleTasks.getTaskList().size();
         // Act
         sampleTasks.addTask(task);

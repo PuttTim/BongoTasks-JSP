@@ -14,7 +14,7 @@ public class SampleTasksTest {
     public void setUp() {
         // Arrange
         sampleTasks = new SampleTasks();
-        task = new Task("04", "Buy Bread", "Buy some bread", false);
+        task = new Task("04", "Buy Bread", "Buy some more bread", false);
     }
 
     @AfterEach

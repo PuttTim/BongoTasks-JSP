@@ -113,7 +113,10 @@ public class TaskServlet extends HttpServlet {
         String taskDesc = request.getParameter("taskDesc");
 
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE bongotasks.tasks SET name = '" + taskName + "', description = '" + taskDesc + "' WHERE id = " + taskToUpdate.getId())) {
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE bongotasks.tasks SET name = ?, description = ? WHERE id = ?")) {
+            preparedStatement.setString(1, taskName);
+            preparedStatement.setString(2, taskDesc);
+            preparedStatement.setString(3, taskToUpdate.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

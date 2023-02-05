@@ -28,6 +28,7 @@ class SampleTasksTest {
 
     @Test
     void addTask() {
+        // Arrange
         int currentSize = sampleTasks.getTaskList().size();
         // Act
         sampleTasks.addTask(task);

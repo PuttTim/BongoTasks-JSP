@@ -143,7 +143,7 @@
                 <img class="bongo-cat"
                      src="https://cdn.discordapp.com/attachments/1033251577609342988/1049237421121880124/bongo-cat-drum.gif"/>
                 <h1 class="title">
-                    BongoTask
+                    BongoTasks
                 </h1>
             </div>
             <button

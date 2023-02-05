@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -32,7 +30,6 @@ class TaskServletTest {
     private PreparedStatement preparedStatement;
     private MockedStatic<DriverManager> driverManager;
     ResultSet resultSet;
-    private List<Task> taskList;
     private Task taskToUpdate;
 
     @BeforeEach
@@ -45,12 +42,6 @@ class TaskServletTest {
         preparedStatement = mock(PreparedStatement.class);
         driverManager = mockStatic(DriverManager.class);
         resultSet = mock(ResultSet.class);
-        taskList = new ArrayList<Task>(
-                asList(
-                        new Task("1", "Buy milk", "Go to the supermarket and buy Meiji Milk", false),
-                        new Task("2", "Buy eggs", "Go to the supermarket and buy 12 eggs", false)
-                )
-        );
         taskToUpdate = spy(TaskServlet.taskToUpdate);
     }
 

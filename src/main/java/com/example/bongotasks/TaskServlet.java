@@ -1,5 +1,4 @@
-import com.example.bongotasks.SampleTasks;
-import com.example.bongotasks.Task;
+package com.example.bongotasks;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "TaskServlet", value = "/TaskServlet")
+@WebServlet(name = "com.example.bongotasks.TaskServlet", value = "/com.example.bongotasks.TaskServlet")
 public class TaskServlet extends HttpServlet {
 
-//    SampleTasks sampleTasks = new SampleTasks();
+    //    SampleTasks sampleTasks = new SampleTasks();
     public static Task taskToUpdate = new Task("0", "0", "0", false);
 
     // connection to the database
@@ -126,7 +125,7 @@ public class TaskServlet extends HttpServlet {
         request.setAttribute("newtaskDesc", taskToUpdate.getDescription());
         request.getRequestDispatcher("/confirmUpdate.jsp").forward(request, response);
 
-        return new Task(taskToUpdate.getId() ,taskToUpdate.getName(), taskToUpdate.getDescription(), taskToUpdate.isStatus());
+        return new Task(taskToUpdate.getId(), taskToUpdate.getName(), taskToUpdate.getDescription(), taskToUpdate.isStatus());
     }
 
     protected void updateStatus(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -159,22 +158,22 @@ public class TaskServlet extends HttpServlet {
         String servletPath = request.getServletPath();
         try {
             switch (servletPath) {
-                case "/TaskServlet/addTask":
+                case "/com.example.bongotasks.TaskServlet/addTask":
                     addTask(request, response);
                     break;
-                case "/TaskServlet/updateTask":
+                case "/com.example.bongotasks.TaskServlet/updateTask":
                     updateTask(request, response);
                     break;
-                case "/TaskServlet/deleteTask":
+                case "/com.example.bongotasks.TaskServlet/deleteTask":
                     deleteTask(request, response);
                     break;
-                case "/TaskServlet/dashboard":
+                case "/com.example.bongotasks.TaskServlet/dashboard":
                     getTasks(request, response);
                     break;
-                case "/TaskServlet/fillTask":
+                case "/com.example.bongotasks.TaskServlet/fillTask":
                     fillTask(request, response);
                     break;
-                case "/TaskServlet/updateStatus":
+                case "/com.example.bongotasks.TaskServlet/updateStatus":
                     updateStatus(request, response);
                     break;
             }

@@ -171,7 +171,7 @@
                                     type="checkbox"
                                     value="Status"
                                     name="Status"
-                                    onchange="location.href='<%=request.getContextPath()%>/TaskServlet/updateStatus?id=${task.id}&status=${!task.status}'"
+                                    onchange="location.href='<%=request.getContextPath()%>/com.example.bongotasks.TaskServlet/updateStatus?id=${task.id}&status=${!task.status}'"
                                 ${task.status ? "checked" : ""}
                             />
                         </td>
@@ -182,14 +182,16 @@
                                 ${task.description}
                         </td>
                         <td class="centered-table" width="20px">
-                            <form action="TaskServlet/fillTask" method="post">
+                            <form action="${pageContext.request.contextPath}/com.example.bongotasks.TaskServlet/fillTask"
+                                  method="post">
                                 <button class="table-button" type="submit" name="edit-id" value=${task.id}>
                                     <i class="fa fa-pencil-square-o edit-button" aria-hidden="true"></i>
                                 </button>
                             </form>
                         </td>
                         <td class="centered-table" width="20px">
-                            <form method="post" action="TaskServlet/deleteTask">
+                            <form method="post"
+                                  action="${pageContext.request.contextPath}/com.example.bongotasks.TaskServlet/deleteTask">
                                 <button class="table-button" type="submit" name="delete-id" value=${task.id}>
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>

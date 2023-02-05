@@ -143,7 +143,8 @@
     </head>
     <body>
         <div class="edit-bg scale-up-center">
-            <form action="TaskServlet/addTask" method="post" autocomplete="off">
+            <form action="${pageContext.request.contextPath}/com.example.bongotasks.TaskServlet/addTask" method="post"
+                  autocomplete="off">
                 <div class="delete-title">
                     Add Task
                 </div>
